@@ -30,8 +30,8 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(ellipse at top, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at top, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(138, 43, 226, 0.06) 0%, transparent 50%),
                 linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
             z-index: -2;
         }
@@ -44,51 +44,43 @@
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
-            padding: 30px 0;
+            margin-bottom: 30px;
+            padding: 20px 0;
         }
 
         .brand-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 700;
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 15px;
-            text-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+            margin-bottom: 10px;
         }
 
         .event-info {
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(138, 43, 226, 0.05) 100%);
             border: 1px solid rgba(255, 215, 0, 0.2);
             border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 50px;
+            padding: 30px;
+            margin-bottom: 40px;
             backdrop-filter: blur(20px);
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .event-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             color: #FFD700;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-weight: 600;
-        }
-
-        .event-details {
-            font-size: 1.1rem;
-            color: #e0e0e0;
-            font-weight: 400;
         }
 
         .main-content {
             display: grid;
-            grid-template-columns: 1fr 500px;
-            gap: 60px;
+            grid-template-columns: 1fr 480px;
+            gap: 40px;
             align-items: start;
         }
 
@@ -96,83 +88,79 @@
             background: linear-gradient(135deg, rgba(20, 20, 20, 0.9) 0%, rgba(30, 30, 30, 0.9) 100%);
             border: 1px solid rgba(255, 215, 0, 0.2);
             border-radius: 25px;
-            padding: 40px;
+            padding: 35px;
             backdrop-filter: blur(20px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #FFD700;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             text-align: center;
             font-weight: 600;
         }
 
-        .venue-container {
-            position: relative;
+        /* Club Venue Design */
+        .venue-map {
             width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            border-radius: 20px;
+            height: 650px;
+            position: relative;
+            background: 
+                linear-gradient(45deg, #2d2d2d 25%, transparent 25%), 
+                linear-gradient(-45deg, #2d2d2d 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #2d2d2d 75%), 
+                linear-gradient(-45deg, transparent 75%, #2d2d2d 75%);
+            background-size: 30px 30px;
+            background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
+            background-color: #1a1a1a;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
             border: 2px solid rgba(255, 215, 0, 0.3);
         }
 
-        .venue-map {
-            width: 100%;
-            height: 700px;
-            position: relative;
-            background: 
-                radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(138, 43, 226, 0.03) 0%, transparent 50%),
-                linear-gradient(45deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
-        }
-
-        /* Stage Design */
+        /* Main Stage - Realistic Design */
         .main-stage {
             position: absolute;
-            top: 30px;
+            top: 25px;
             left: 50%;
             transform: translateX(-50%);
-            width: 280px;
-            height: 80px;
+            width: 300px;
+            height: 100px;
             background: linear-gradient(135deg, #FF6B6B 0%, #FF4757 100%);
-            border-radius: 40px;
+            border-radius: 20px 20px 5px 5px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: white;
-            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
-            border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 15px 35px rgba(255, 107, 107, 0.4),
+                inset 0 -10px 20px rgba(0, 0, 0, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.3);
         }
 
         .main-stage::after {
             content: '';
             position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 15px;
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.3) 0%, transparent 100%);
-            border-radius: 15px;
-            filter: blur(5px);
+            bottom: -20px;
+            left: 10%;
+            width: 80%;
+            height: 20px;
+            background: linear-gradient(135deg, #444 0%, #222 100%);
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         /* DJ Booth */
         .dj-booth {
             position: absolute;
-            top: 130px;
+            top: 140px;
             left: 50%;
             transform: translateX(-50%);
-            width: 140px;
-            height: 70px;
+            width: 160px;
+            height: 80px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 15px;
             display: flex;
@@ -181,101 +169,144 @@
             font-weight: 700;
             color: white;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 12px 30px rgba(102, 126, 234, 0.4),
+                inset 0 -5px 15px rgba(0, 0, 0, 0.2);
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         .dj-booth:hover {
-            transform: translateX(-50%) translateY(-5px) scale(1.05);
+            transform: translateX(-50%) translateY(-8px);
             box-shadow: 0 20px 40px rgba(102, 126, 234, 0.6);
         }
 
-        /* Premium Areas */
+        /* Bars and Areas */
         .premium-bar {
             position: absolute;
-            bottom: 40px;
-            right: 40px;
-            width: 120px;
-            height: 140px;
+            bottom: 50px;
+            right: 50px;
+            width: 140px;
+            height: 160px;
             background: linear-gradient(135deg, #48CAE4 0%, #023E8A 100%);
-            border-radius: 15px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
             color: white;
             writing-mode: vertical-rl;
-            box-shadow: 0 12px 30px rgba(72, 202, 228, 0.4);
+            text-align: center;
+            box-shadow: 
+                0 15px 35px rgba(72, 202, 228, 0.4),
+                inset 0 -10px 20px rgba(0, 0, 0, 0.2);
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         .coolcat-corner {
             position: absolute;
-            bottom: 40px;
-            left: 40px;
-            width: 140px;
-            height: 90px;
+            bottom: 50px;
+            left: 50px;
+            width: 160px;
+            height: 110px;
             background: linear-gradient(135deg, #F72585 0%, #B5179E 100%);
-            border-radius: 15px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
             color: white;
             text-align: center;
-            font-size: 0.9rem;
-            box-shadow: 0 12px 30px rgba(247, 37, 133, 0.4);
+            font-size: 1rem;
+            box-shadow: 
+                0 15px 35px rgba(247, 37, 133, 0.4),
+                inset 0 -10px 20px rgba(0, 0, 0, 0.2);
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         .vip-lounge {
             position: absolute;
-            top: 220px;
-            right: 50px;
-            width: 160px;
-            height: 100px;
+            top: 250px;
+            right: 60px;
+            width: 180px;
+            height: 120px;
             background: linear-gradient(135deg, #FFD60A 0%, #FF8500 100%);
-            border-radius: 15px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
             color: #000;
             text-align: center;
-            box-shadow: 0 12px 30px rgba(255, 214, 10, 0.4);
+            font-size: 1.1rem;
+            box-shadow: 
+                0 15px 35px rgba(255, 214, 10, 0.4),
+                inset 0 -10px 20px rgba(0, 0, 0, 0.1);
             border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
-        /* Table Sections */
+        /* Dance Floor */
+        .dance-floor {
+            position: absolute;
+            top: 350px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 120px;
+            background: 
+                linear-gradient(45deg, #333 25%, transparent 25%), 
+                linear-gradient(-45deg, #333 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #333 75%), 
+                linear-gradient(-45deg, transparent 75%, #333 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .dance-floor::after {
+            content: '💃 DANCE FLOOR';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #FFD700;
+            font-weight: 700;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Real Table Graphics */
         .table-section {
             position: absolute;
-            background: rgba(40, 40, 40, 0.7);
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            backdrop-filter: blur(10px);
+            padding: 15px;
         }
 
         .section-label {
             color: #FFD700;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 700;
             margin-bottom: 15px;
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 1px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 12px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
         }
 
         .tables-grid {
             display: grid;
-            gap: 12px;
+            gap: 15px;
         }
 
         .main-floor {
             top: 240px;
-            left: 60px;
-            width: 280px;
+            left: 80px;
+            width: 300px;
         }
 
         .main-floor .tables-grid {
@@ -284,8 +315,8 @@
 
         .right-wing {
             top: 240px;
-            right: 230px;
-            width: 210px;
+            right: 280px;
+            width: 240px;
         }
 
         .right-wing .tables-grid {
@@ -293,10 +324,10 @@
         }
 
         .vip-section {
-            top: 420px;
+            top: 480px;
             left: 50%;
             transform: translateX(-50%);
-            width: 300px;
+            width: 350px;
         }
 
         .vip-section .tables-grid {
@@ -307,20 +338,19 @@
             top: 580px;
             left: 50%;
             transform: translateX(-50%);
-            width: 200px;
+            width: 250px;
         }
 
         .premium-section .tables-grid {
             grid-template-columns: repeat(3, 1fr);
         }
 
-        /* Table Buttons */
+        /* Realistic Table Design */
         .table-btn {
-            width: 55px;
-            height: 55px;
-            border-radius: 12px;
-            border: 2px solid;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid;
             color: white;
             font-weight: 700;
             cursor: pointer;
@@ -328,29 +358,58 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            position: relative;
             backdrop-filter: blur(5px);
         }
 
+        /* Table Shadow Effects */
+        .table-btn::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            filter: blur(4px);
+            z-index: -1;
+        }
+
         .table-btn.standard {
-            border-color: #95a5a6;
-            box-shadow: 0 4px 15px rgba(149, 165, 166, 0.2);
+            border-color: #bdc3c7;
+            background: 
+                radial-gradient(circle at 30% 30%, #ecf0f1 0%, #95a5a6 100%);
+            color: #2c3e50;
+            box-shadow: 
+                0 6px 20px rgba(149, 165, 166, 0.3),
+                inset 0 -5px 10px rgba(0, 0, 0, 0.1);
         }
 
         .table-btn.vip {
-            border-color: #f39c12;
-            background: linear-gradient(135deg, rgba(243, 156, 18, 0.15) 0%, rgba(230, 126, 34, 0.1) 100%);
-            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+            border-color: #f1c40f;
+            background: 
+                radial-gradient(circle at 30% 30%, #f39c12 0%, #e67e22 100%);
+            box-shadow: 
+                0 8px 25px rgba(243, 156, 18, 0.4),
+                inset 0 -5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .table-btn.premium {
             border-color: #FFD700;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 165, 0, 0.15) 100%);
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            background: 
+                radial-gradient(circle at 30% 30%, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            box-shadow: 
+                0 10px 30px rgba(255, 215, 0, 0.5),
+                inset 0 -5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .table-btn.sold {
-            background: linear-gradient(135deg, #555 0%, #333 100%);
+            background: 
+                radial-gradient(circle at 30% 30%, #555 0%, #333 100%);
             border-color: #666;
             cursor: not-allowed;
             opacity: 0.4;
@@ -358,21 +417,53 @@
         }
 
         .table-btn:not(.sold):hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            transform: translateY(-5px) scale(1.1);
+            z-index: 10;
         }
 
         .table-btn.selected {
             border-color: #FFD700 !important;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%) !important;
+            background: radial-gradient(circle at 30% 30%, #FFD700 0%, #FFA500 100%) !important;
             color: #000 !important;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
-            animation: selectedPulse 2s infinite;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+            animation: selectedGlow 2s infinite;
         }
 
-        @keyframes selectedPulse {
-            0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.7); }
-            50% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.9); }
+        @keyframes selectedGlow {
+            0%, 100% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.8); }
+            50% { box-shadow: 0 0 60px rgba(255, 215, 0, 1); }
+        }
+
+        /* Ambient Lighting Effects */
+        .stage-lights {
+            position: absolute;
+            top: 125px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 30px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 107, 107, 0.3) 20%, 
+                rgba(255, 215, 0, 0.3) 40%, 
+                rgba(102, 126, 234, 0.3) 60%, 
+                rgba(247, 37, 133, 0.3) 80%, 
+                transparent 100%);
+            filter: blur(8px);
+            border-radius: 50px;
+        }
+
+        .ambient-lights {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 107, 107, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 80% 40%, rgba(102, 126, 234, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 50% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 40%);
+            pointer-events: none;
         }
 
         /* Booking Panel */
@@ -380,7 +471,7 @@
             background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(30, 30, 30, 0.95) 100%);
             border: 1px solid rgba(255, 215, 0, 0.2);
             border-radius: 25px;
-            padding: 40px;
+            padding: 35px;
             backdrop-filter: blur(20px);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
             position: sticky;
@@ -391,190 +482,172 @@
 
         .booking-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #FFD700;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: center;
             font-weight: 600;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 600;
             color: #e0e0e0;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .form-group input, .form-group select {
             width: 100%;
-            padding: 16px 20px;
+            padding: 14px 18px;
             border: 2px solid rgba(255, 215, 0, 0.2);
-            border-radius: 12px;
+            border-radius: 10px;
             background: rgba(40, 40, 40, 0.8);
             color: white;
-            font-size: 16px;
+            font-size: 15px;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
         }
 
         .form-group input:focus, .form-group select:focus {
             outline: none;
             border-color: #FFD700;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
         }
 
         .selected-table {
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 107, 107, 0.1) 100%);
             border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 25px;
-            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 20px;
         }
 
         .selected-table h4 {
             color: #FFD700;
-            font-size: 1.3rem;
-            margin-bottom: 8px;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
             font-weight: 700;
         }
 
         .dj-tip-section {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
             border: 2px solid rgba(102, 126, 234, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 25px;
-            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 20px;
         }
 
         .tip-buttons {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-top: 15px;
+            gap: 8px;
+            margin-top: 12px;
         }
 
         .tip-btn {
-            padding: 12px 8px;
+            padding: 10px;
             border: 2px solid rgba(102, 126, 234, 0.5);
-            border-radius: 10px;
+            border-radius: 8px;
             background: rgba(102, 126, 234, 0.1);
             color: white;
             cursor: pointer;
             text-align: center;
             transition: all 0.3s ease;
             font-weight: 600;
-            backdrop-filter: blur(5px);
         }
 
         .tip-btn:hover, .tip-btn.selected {
             border-color: #667eea;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.2) 100%);
+            background: rgba(102, 126, 234, 0.3);
             transform: translateY(-2px);
         }
 
         .price-breakdown {
             background: rgba(40, 40, 40, 0.9);
             border: 1px solid rgba(255, 215, 0, 0.2);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 25px 0;
-            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
         }
 
         .price-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: #e0e0e0;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .price-total {
             border-top: 2px solid #FFD700;
-            padding-top: 15px;
-            margin-top: 15px;
+            padding-top: 12px;
+            margin-top: 12px;
             font-weight: 700;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: #FFD700;
-        }
-
-        .payment-section {
-            margin-top: 30px;
         }
 
         .wallet-buttons {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 12px;
+            margin-bottom: 18px;
         }
 
         .wallet-btn {
-            padding: 16px;
+            padding: 14px;
             border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 12px;
+            border-radius: 10px;
             background: rgba(30, 30, 30, 0.8);
             color: white;
             cursor: pointer;
             text-align: center;
             transition: all 0.3s ease;
             font-weight: 600;
-            backdrop-filter: blur(10px);
         }
 
         .wallet-btn:hover {
             border-color: #FFD700;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.05) 100%);
+            background: rgba(255, 215, 0, 0.1);
             transform: translateY(-2px);
         }
 
         .btn {
             width: 100%;
-            padding: 18px;
+            padding: 16px;
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
             color: #000;
             border: none;
-            border-radius: 12px;
-            font-size: 18px;
+            border-radius: 10px;
+            font-size: 16px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            letter-spacing: 0.5px;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
-        }
-
-        .btn:disabled {
-            background: linear-gradient(135deg, #666 0%, #444 100%);
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
+            box-shadow: 0 12px 30px rgba(255, 215, 0, 0.4);
         }
 
         .empty-state {
             text-align: center;
             color: #888;
-            padding: 60px 20px;
-            font-size: 1.1rem;
+            padding: 50px 20px;
+            font-size: 1rem;
         }
 
         /* Responsive */
         @media (max-width: 1200px) {
             .main-content {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 30px;
             }
             
             .booking-panel {
@@ -585,25 +658,33 @@
 
         @media (max-width: 768px) {
             .venue-map {
-                height: 600px;
+                height: 550px;
             }
             
             .brand-logo {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .event-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
-            .table-section {
-                padding: 15px;
+            .main-stage {
+                width: 220px;
+                height: 70px;
+                font-size: 1rem;
+            }
+            
+            .dj-booth {
+                width: 120px;
+                height: 60px;
+                font-size: 0.9rem;
             }
             
             .table-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 0.85rem;
+                width: 50px;
+                height: 50px;
+                font-size: 0.9rem;
             }
             
             .main-floor {
@@ -612,20 +693,20 @@
             }
             
             .right-wing {
-                right: 180px;
+                right: 200px;
                 width: 180px;
             }
             
             .vip-section {
-                width: 250px;
+                width: 280px;
             }
             
             .premium-section {
-                width: 170px;
+                width: 200px;
             }
 
-            .wallet-buttons {
-                grid-template-columns: 1fr;
+            .premium-bar, .coolcat-corner, .vip-lounge {
+                transform: scale(0.8);
             }
         }
     </style>
@@ -647,61 +728,64 @@
 
         <div class="main-content">
             <div class="venue-section">
-                <h3 class="section-title">Venue Layout & Table Selection</h3>
-                <div class="venue-container">
-                    <div class="venue-map">
-                        <!-- Venue Areas -->
-                        <div class="main-stage">🎭 MAIN STAGE</div>
-                        <div class="dj-booth" onclick="showDJTip()">🎧 DJ BOOTH</div>
-                        <div class="premium-bar">🥂<br>PREMIUM<br>BAR</div>
-                        <div class="coolcat-corner">🛍️<br>COOLCAT<br>CORNER</div>
-                        <div class="vip-lounge">👑<br>VIP<br>LOUNGE</div>
+                <h3 class="section-title">Interactive Venue Experience</h3>
+                <div class="venue-map">
+                    <!-- Lighting Effects -->
+                    <div class="ambient-lights"></div>
+                    <div class="stage-lights"></div>
+                    
+                    <!-- Venue Areas -->
+                    <div class="main-stage">🎭 MAIN STAGE</div>
+                    <div class="dj-booth" onclick="showDJTip()">🎧 DJ BOOTH</div>
+                    <div class="dance-floor"></div>
+                    <div class="premium-bar">🥂<br>PREMIUM<br>BAR</div>
+                    <div class="coolcat-corner">🛍️<br>COOLCAT<br>CORNER</div>
+                    <div class="vip-lounge">👑<br>VIP<br>LOUNGE</div>
 
-                        <!-- Table Sections -->
-                        <div class="table-section main-floor">
-                            <div class="section-label">Main Floor - $85</div>
-                            <div class="tables-grid">
-                                <div class="table-btn standard" data-table="M1" data-type="Standard" data-price="85">M1</div>
-                                <div class="table-btn standard" data-table="M2" data-type="Standard" data-price="85">M2</div>
-                                <div class="table-btn standard" data-table="M3" data-type="Standard" data-price="85">M3</div>
-                                <div class="table-btn standard" data-table="M4" data-type="Standard" data-price="85">M4</div>
-                                <div class="table-btn standard sold" data-table="M5" data-type="Standard" data-price="85">M5</div>
-                                <div class="table-btn standard" data-table="M6" data-type="Standard" data-price="85">M6</div>
-                                <div class="table-btn standard" data-table="M7" data-type="Standard" data-price="85">M7</div>
-                                <div class="table-btn standard" data-table="M8" data-type="Standard" data-price="85">M8</div>
-                            </div>
+                    <!-- Table Sections -->
+                    <div class="table-section main-floor">
+                        <div class="section-label">Main Floor - $85</div>
+                        <div class="tables-grid">
+                            <div class="table-btn standard" data-table="M1" data-type="Standard" data-price="85">M1</div>
+                            <div class="table-btn standard" data-table="M2" data-type="Standard" data-price="85">M2</div>
+                            <div class="table-btn standard" data-table="M3" data-type="Standard" data-price="85">M3</div>
+                            <div class="table-btn standard" data-table="M4" data-type="Standard" data-price="85">M4</div>
+                            <div class="table-btn standard sold" data-table="M5" data-type="Standard" data-price="85">M5</div>
+                            <div class="table-btn standard" data-table="M6" data-type="Standard" data-price="85">M6</div>
+                            <div class="table-btn standard" data-table="M7" data-type="Standard" data-price="85">M7</div>
+                            <div class="table-btn standard" data-table="M8" data-type="Standard" data-price="85">M8</div>
                         </div>
+                    </div>
 
-                        <div class="table-section right-wing">
-                            <div class="section-label">Right Wing - $85</div>
-                            <div class="tables-grid">
-                                <div class="table-btn standard" data-table="R1" data-type="Standard" data-price="85">R1</div>
-                                <div class="table-btn standard" data-table="R2" data-type="Standard" data-price="85">R2</div>
-                                <div class="table-btn standard" data-table="R3" data-type="Standard" data-price="85">R3</div>
-                                <div class="table-btn standard" data-table="R4" data-type="Standard" data-price="85">R4</div>
-                                <div class="table-btn standard" data-table="R5" data-type="Standard" data-price="85">R5</div>
-                                <div class="table-btn standard" data-table="R6" data-type="Standard" data-price="85">R6</div>
-                            </div>
+                    <div class="table-section right-wing">
+                        <div class="section-label">Right Wing - $85</div>
+                        <div class="tables-grid">
+                            <div class="table-btn standard" data-table="R1" data-type="Standard" data-price="85">R1</div>
+                            <div class="table-btn standard" data-table="R2" data-type="Standard" data-price="85">R2</div>
+                            <div class="table-btn standard" data-table="R3" data-type="Standard" data-price="85">R3</div>
+                            <div class="table-btn standard" data-table="R4" data-type="Standard" data-price="85">R4</div>
+                            <div class="table-btn standard" data-table="R5" data-type="Standard" data-price="85">R5</div>
+                            <div class="table-btn standard" data-table="R6" data-type="Standard" data-price="85">R6</div>
                         </div>
+                    </div>
 
-                        <div class="table-section vip-section">
-                            <div class="section-label">VIP Section - $185</div>
-                            <div class="tables-grid">
-                                <div class="table-btn vip" data-table="V1" data-type="VIP Silver" data-price="185">V1</div>
-                                <div class="table-btn vip" data-table="V2" data-type="VIP Silver" data-price="185">V2</div>
-                                <div class="table-btn vip" data-table="V3" data-type="VIP Silver" data-price="185">V3</div>
-                                <div class="table-btn vip" data-table="V4" data-type="VIP Silver" data-price="185">V4</div>
-                                <div class="table-btn vip" data-table="V5" data-type="VIP Silver" data-price="185">V5</div>
-                            </div>
+                    <div class="table-section vip-section">
+                        <div class="section-label">VIP Section - $185</div>
+                        <div class="tables-grid">
+                            <div class="table-btn vip" data-table="V1" data-type="VIP Silver" data-price="185">V1</div>
+                            <div class="table-btn vip" data-table="V2" data-type="VIP Silver" data-price="185">V2</div>
+                            <div class="table-btn vip" data-table="V3" data-type="VIP Silver" data-price="185">V3</div>
+                            <div class="table-btn vip" data-table="V4" data-type="VIP Silver" data-price="185">V4</div>
+                            <div class="table-btn vip" data-table="V5" data-type="VIP Silver" data-price="185">V5</div>
                         </div>
+                    </div>
 
-                        <div class="table-section premium-section">
-                            <div class="section-label">Premium Royale - $350</div>
-                            <div class="tables-grid">
-                                <div class="table-btn premium" data-table="P1" data-type="Premium Royale" data-price="350">P1</div>
-                                <div class="table-btn premium" data-table="P2" data-type="Premium Royale" data-price="350">P2</div>
-                                <div class="table-btn premium" data-table="P3" data-type="Premium Royale" data-price="350">P3</div>
-                            </div>
+                    <div class="table-section premium-section">
+                        <div class="section-label">Premium Royale - $350</div>
+                        <div class="tables-grid">
+                            <div class="table-btn premium" data-table="P1" data-type="Premium Royale" data-price="350">P1</div>
+                            <div class="table-btn premium" data-table="P2" data-type="Premium Royale" data-price="350">P2</div>
+                            <div class="table-btn premium" data-table="P3" data-type="Premium Royale" data-price="350">P3</div>
                         </div>
                     </div>
                 </div>
@@ -712,19 +796,19 @@
                 
                 <div id="booking-form" class="booking-form">
                     <div class="empty-state">
-                        <p>Select your preferred table from the venue map to begin your reservation</p>
+                        <p>Select your preferred table from the venue map to begin your luxury reservation experience</p>
                     </div>
                 </div>
 
                 <div id="selected-booking" class="booking-form" style="display: none;">
                     <div class="selected-table">
                         <h4 id="selected-table-info">Table Selected</h4>
-                        <p id="selected-table-details" style="color: #c0c0c0; margin-top: 8px;">Details will appear here</p>
+                        <p id="selected-table-details" style="color: #c0c0c0; margin-top: 6px;">Details will appear here</p>
                     </div>
 
                     <div id="dj-tip-section" class="dj-tip-section" style="display: none;">
-                        <h4 style="color: #667eea; margin-bottom: 10px; font-weight: 700;">🎧 Tip the DJ</h4>
-                        <p style="color: #c0c0c0; font-size: 0.95rem; margin-bottom: 10px;">Show appreciation for the beats!</p>
+                        <h4 style="color: #667eea; margin-bottom: 8px; font-weight: 700;">🎧 Tip the DJ</h4>
+                        <p style="color: #c0c0c0; font-size: 0.9rem; margin-bottom: 8px;">Show appreciation for the beats!</p>
                         <div class="tip-buttons">
                             <div class="tip-btn" data-tip="10">$10</div>
                             <div class="tip-btn" data-tip="20">$20</div>
@@ -780,7 +864,7 @@
                     </div>
 
                     <div class="payment-section">
-                        <label style="display: block; margin-bottom: 15px; font-weight: 600; color: #e0e0e0; font-size: 1rem;">Add to Wallet & Pay</label>
+                        <label style="display: block; margin-bottom: 12px; font-weight: 600; color: #e0e0e0;">Add to Wallet & Pay</label>
                         <div class="wallet-buttons">
                             <div class="wallet-btn" onclick="addToAppleWallet()">
                                 🍎 Apple Wallet
@@ -890,7 +974,7 @@
             const total = parseInt(document.getElementById('total-price').textContent.replace(/[$,]/g, ''));
             const guests = document.getElementById('guests').value;
 
-            // Simulate payment processing
+            // In production, integrate with Stripe
             alert(`🎉 Payment Successful!
 
 ✅ Reservation Confirmed
@@ -904,9 +988,8 @@ Total: $${total.toLocaleString()}
 📱 SMS sent to ${phone}
 
 Welcome to Bollywood Royale! 
-Get ready for an unforgettable night!`);
+Get ready for an unforgettable cultural experience!`);
 
-            // Reset form after delay
             setTimeout(() => location.reload(), 3000);
         }
     </script>
