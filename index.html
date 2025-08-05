@@ -30,8 +30,7 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(ellipse at top, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom, rgba(138, 43, 226, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at top, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
                 linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
             z-index: -2;
         }
@@ -101,369 +100,115 @@
             font-weight: 600;
         }
 
-        /* Club Venue Design */
-        .venue-map {
-            width: 100%;
-            height: 650px;
+        /* Venue Map Container */
+        .venue-map-container {
             position: relative;
-            background: 
-                linear-gradient(45deg, #2d2d2d 25%, transparent 25%), 
-                linear-gradient(-45deg, #2d2d2d 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, #2d2d2d 75%), 
-                linear-gradient(-45deg, transparent 75%, #2d2d2d 75%);
-            background-size: 30px 30px;
-            background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
-            background-color: #1a1a1a;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
             border-radius: 15px;
             overflow: hidden;
-            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        /* Main Stage - Realistic Design */
-        .main-stage {
-            position: absolute;
-            top: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 300px;
-            height: 100px;
-            background: linear-gradient(135deg, #FF6B6B 0%, #FF4757 100%);
-            border-radius: 20px 20px 5px 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: white;
-            box-shadow: 
-                0 15px 35px rgba(255, 107, 107, 0.4),
-                inset 0 -10px 20px rgba(0, 0, 0, 0.2);
-            border: 3px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .main-stage::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 10%;
-            width: 80%;
-            height: 20px;
-            background: linear-gradient(135deg, #444 0%, #222 100%);
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        /* DJ Booth */
-        .dj-booth {
-            position: absolute;
-            top: 140px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 160px;
-            height: 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .venue-artwork {
+            width: 100%;
+            height: auto;
+            display: block;
             border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 
-                0 12px 30px rgba(102, 126, 234, 0.4),
-                inset 0 -5px 15px rgba(0, 0, 0, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        .dj-booth:hover {
-            transform: translateX(-50%) translateY(-8px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.6);
-        }
-
-        /* Bars and Areas */
-        .premium-bar {
-            position: absolute;
-            bottom: 50px;
-            right: 50px;
-            width: 140px;
-            height: 160px;
-            background: linear-gradient(135deg, #48CAE4 0%, #023E8A 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: white;
-            writing-mode: vertical-rl;
-            text-align: center;
-            box-shadow: 
-                0 15px 35px rgba(72, 202, 228, 0.4),
-                inset 0 -10px 20px rgba(0, 0, 0, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .coolcat-corner {
-            position: absolute;
-            bottom: 50px;
-            left: 50px;
-            width: 160px;
-            height: 110px;
-            background: linear-gradient(135deg, #F72585 0%, #B5179E 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: white;
-            text-align: center;
-            font-size: 1rem;
-            box-shadow: 
-                0 15px 35px rgba(247, 37, 133, 0.4),
-                inset 0 -10px 20px rgba(0, 0, 0, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .vip-lounge {
-            position: absolute;
-            top: 250px;
-            right: 60px;
-            width: 180px;
-            height: 120px;
-            background: linear-gradient(135deg, #FFD60A 0%, #FF8500 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: #000;
-            text-align: center;
-            font-size: 1.1rem;
-            box-shadow: 
-                0 15px 35px rgba(255, 214, 10, 0.4),
-                inset 0 -10px 20px rgba(0, 0, 0, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        /* Dance Floor */
-        .dance-floor {
-            position: absolute;
-            top: 350px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 120px;
-            background: 
-                linear-gradient(45deg, #333 25%, transparent 25%), 
-                linear-gradient(-45deg, #333 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, #333 75%), 
-                linear-gradient(-45deg, transparent 75%, #333 75%);
-            background-size: 20px 20px;
-            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-            background-color: #1a1a1a;
-            border-radius: 15px;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.1);
-        }
-
-        .dance-floor::after {
-            content: '💃 DANCE FLOOR';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #FFD700;
-            font-weight: 700;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        /* Real Table Graphics */
-        .table-section {
-            position: absolute;
-            padding: 15px;
-        }
-
-        .section-label {
-            color: #FFD700;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 8px 12px;
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-        }
-
-        .tables-grid {
-            display: grid;
-            gap: 15px;
-        }
-
-        .main-floor {
-            top: 240px;
-            left: 80px;
-            width: 300px;
-        }
-
-        .main-floor .tables-grid {
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .right-wing {
-            top: 240px;
-            right: 280px;
-            width: 240px;
-        }
-
-        .right-wing .tables-grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .vip-section {
-            top: 480px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 350px;
-        }
-
-        .vip-section .tables-grid {
-            grid-template-columns: repeat(5, 1fr);
-        }
-
-        .premium-section {
-            top: 580px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 250px;
-        }
-
-        .premium-section .tables-grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        /* Realistic Table Design */
-        .table-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 3px solid;
-            color: white;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            position: relative;
-            backdrop-filter: blur(5px);
-        }
-
-        /* Table Shadow Effects */
-        .table-btn::before {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70%;
-            height: 8px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 50%;
-            filter: blur(4px);
-            z-index: -1;
-        }
-
-        .table-btn.standard {
-            border-color: #bdc3c7;
-            background: 
-                radial-gradient(circle at 30% 30%, #ecf0f1 0%, #95a5a6 100%);
-            color: #2c3e50;
-            box-shadow: 
-                0 6px 20px rgba(149, 165, 166, 0.3),
-                inset 0 -5px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .table-btn.vip {
-            border-color: #f1c40f;
-            background: 
-                radial-gradient(circle at 30% 30%, #f39c12 0%, #e67e22 100%);
-            box-shadow: 
-                0 8px 25px rgba(243, 156, 18, 0.4),
-                inset 0 -5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .table-btn.premium {
-            border-color: #FFD700;
-            background: 
-                radial-gradient(circle at 30% 30%, #FFD700 0%, #FFA500 100%);
-            color: #000;
-            box-shadow: 
-                0 10px 30px rgba(255, 215, 0, 0.5),
-                inset 0 -5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .table-btn.sold {
-            background: 
-                radial-gradient(circle at 30% 30%, #555 0%, #333 100%);
-            border-color: #666;
-            cursor: not-allowed;
-            opacity: 0.4;
-            filter: grayscale(100%);
-        }
-
-        .table-btn:not(.sold):hover {
-            transform: translateY(-5px) scale(1.1);
-            z-index: 10;
-        }
-
-        .table-btn.selected {
-            border-color: #FFD700 !important;
-            background: radial-gradient(circle at 30% 30%, #FFD700 0%, #FFA500 100%) !important;
-            color: #000 !important;
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
-            animation: selectedGlow 2s infinite;
-        }
-
-        @keyframes selectedGlow {
-            0%, 100% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.8); }
-            50% { box-shadow: 0 0 60px rgba(255, 215, 0, 1); }
-        }
-
-        /* Ambient Lighting Effects */
-        .stage-lights {
-            position: absolute;
-            top: 125px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 250px;
-            height: 30px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(255, 107, 107, 0.3) 20%, 
-                rgba(255, 215, 0, 0.3) 40%, 
-                rgba(102, 126, 234, 0.3) 60%, 
-                rgba(247, 37, 133, 0.3) 80%, 
-                transparent 100%);
-            filter: blur(8px);
-            border-radius: 50px;
-        }
-
-        .ambient-lights {
+        /* Interactive Overlay Areas */
+        .interactive-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(255, 107, 107, 0.1) 0%, transparent 30%),
-                radial-gradient(circle at 80% 40%, rgba(102, 126, 234, 0.1) 0%, transparent 30%),
-                radial-gradient(circle at 50% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 40%);
             pointer-events: none;
+        }
+
+        .clickable-area {
+            position: absolute;
+            cursor: pointer;
+            pointer-events: auto;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            background: rgba(255, 215, 0, 0.0);
+            border: 2px solid transparent;
+        }
+
+        .clickable-area:hover {
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.6);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .clickable-area.selected {
+            background: rgba(255, 215, 0, 0.3);
+            border: 3px solid #FFD700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+            animation: selectedPulse 2s infinite;
+        }
+
+        @keyframes selectedPulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.8); }
+            50% { box-shadow: 0 0 50px rgba(255, 215, 0, 1); }
+        }
+
+        /* Table Labels */
+        .table-label {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: #FFD700;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            pointer-events: none;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        /* Special Interactive Areas */
+        .dj-area {
+            position: absolute;
+            top: 28%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 60px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            background: rgba(102, 126, 234, 0.0);
+            border: 2px solid transparent;
+        }
+
+        .dj-area:hover {
+            background: rgba(102, 126, 234, 0.2);
+            border: 2px solid rgba(102, 126, 234, 0.6);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .coolcat-area {
+            position: absolute;
+            top: 15%;
+            left: 8%;
+            width: 140px;
+            height: 100px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            background: rgba(247, 37, 133, 0.0);
+            border: 2px solid transparent;
+        }
+
+        .coolcat-area:hover {
+            background: rgba(247, 37, 133, 0.2);
+            border: 2px solid rgba(247, 37, 133, 0.6);
+            box-shadow: 0 0 20px rgba(247, 37, 133, 0.4);
         }
 
         /* Booking Panel */
@@ -639,8 +384,27 @@
         .empty-state {
             text-align: center;
             color: #888;
-            padding: 50px 20px;
+            padding: 40px 20px;
             font-size: 1rem;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            color: #FFD700;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .tooltip.show {
+            opacity: 1;
         }
 
         /* Responsive */
@@ -657,10 +421,6 @@
         }
 
         @media (max-width: 768px) {
-            .venue-map {
-                height: 550px;
-            }
-            
             .brand-logo {
                 font-size: 2.2rem;
             }
@@ -668,45 +428,9 @@
             .event-title {
                 font-size: 1.8rem;
             }
-            
-            .main-stage {
-                width: 220px;
-                height: 70px;
-                font-size: 1rem;
-            }
-            
-            .dj-booth {
-                width: 120px;
-                height: 60px;
-                font-size: 0.9rem;
-            }
-            
-            .table-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 0.9rem;
-            }
-            
-            .main-floor {
-                left: 40px;
-                width: 240px;
-            }
-            
-            .right-wing {
-                right: 200px;
-                width: 180px;
-            }
-            
-            .vip-section {
-                width: 280px;
-            }
-            
-            .premium-section {
-                width: 200px;
-            }
 
-            .premium-bar, .coolcat-corner, .vip-lounge {
-                transform: scale(0.8);
+            .wallet-buttons {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -728,65 +452,83 @@
 
         <div class="main-content">
             <div class="venue-section">
-                <h3 class="section-title">Interactive Venue Experience</h3>
-                <div class="venue-map">
-                    <!-- Lighting Effects -->
-                    <div class="ambient-lights"></div>
-                    <div class="stage-lights"></div>
+                <h3 class="section-title">Interactive Venue Map</h3>
+                <div class="venue-map-container">
+                    <!-- Venue Artwork -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDgwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXJfMF8xIiB4MT0iMCIgeTE9IjAiIHgyPSI4MDAiIHkyPSI2MDAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzFhMWExYSIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwYTBhMGEiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzBfMSkiLz4KPCEtLSBNYWluIFN0YWdlIC0tPgo8cmVjdCB4PSIyNTAiIHk9IjMwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjgwIiByeD0iMjAiIGZpbGw9InVybCgjcGFpbnQxX2xpbmVhcl8wXzEpIiBzdHJva2U9IiNGRkQ3MDAiIHN0cm9rZS13aWR0aD0iMiIvPgo8dGV4dCB4PSI0MDAiIHk9IjgwIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+OrSBNQUlOIFNUQUdFPC90ZXh0PgoKPCEtLSBESiBCb290aCAtLT4KPHJlY3QgeD0iMzQwIiB5PSIxMzAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNjAiIHJ4PSIxNSIgZmlsbD0iIzY2N2VlYSIgc3Ryb2tlPSIjRkZENzAwIiBzdHJva2Utd2lkdGg9IjIiLz4KPHRleHQgeD0iNDAwIiB5PSIxNzAiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7wn46nIERKIEJPT1RIPC90ZXh0PgoKPCEtLSBEYW5jZSBGbG9vciAtLT4KPGNpcmNsZSBjeD0iNDAwIiBjeT0iMzUwIiByPSI4MCIgZmlsbD0iIzJhMmEyYSIgc3Ryb2tlPSIjRkZENzAwIiBzdHJva2Utd2lkdGg9IjMiLz4KPHRleHQgeD0iNDAwIiB5PSIzNjAiIGZpbGw9IiNGRkQ3MDAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfkoPwn4+QIERBTKNESSBGTE9PUjwvdGV4dD4KCjwhLS0gQ29vbCBDYXQgQ29ybmVyIC0tPgo8cmVjdCB4PSI1MCIgeT0iNzAiIHdpZHRoPSIxNDAiIGhlaWdodD0iMTAwIiByeD0iMjAiIGZpbGw9IiNGNzI1ODUiIHN0cm9rZT0iI0ZGRDcwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjx0ZXh0IHg9IjEyMCIgeT0iMTA1IiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+bbO+4jyBDT09MIENBVDwvdGV4dD4KPHRleHQgeD0iMTIwIiB5PSIxMzUiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DT1JORVI8L3RleHQ+CgoKPCEtLSBWSVAgTG91bmdlIC0tPgo8cmVjdCB4PSI2MTAiIHk9IjcwIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjEyMCIgcng9IjIwIiBmaWxsPSIjRkZENjBBIiBzdHJva2U9IiNGRkQ3MDAiIHN0cm9rZS13aWR0aD0iMiIvPgo8dGV4dCB4PSI2ODAiIHk9IjExNSIgZmlsbD0iYmxhY2siIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfkZEgVklQPC90ZXh0Pgo8dGV4dCB4PSI2ODAiIHk9IjE0NSIgZmlsbD0iYmxhY2siIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkxPVU5HRTwvdGV4dD4KCjwhLS0gUHJlbWl1bSBCYXIgLS0+CjxyZWN0IHg9IjY1MCIgeT0iNDAwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjE2MCIgcng9IjIwIiBmaWxsPSIjNDhDQUU0IiBzdHJva2U9IiNGRkQ3MDAiIHN0cm9rZS13aWR0aD0iMiIvPgo8dGV4dCB4PSI3MTAiIHk9IjQ2MCIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfpachPC90ZXh0Pgo8dGV4dCB4PSI3MTAiIHk9IjQ5MCIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkJBUjwvdGV4dD4KCjwhLS0gVGFibGVzIC0tPgo8IS0tIE1haW4gRmxvb3IgVGFibGVzIC0tPgo8Y2lyY2xlIGN4PSIxMDAiIGN5PSIyNTAiIHI9IjI1IiBmaWxsPSIjOTVhNWE2IiBzdHJva2U9IiNiZGMzYzciIHN0cm9rZS13aWR0aD0iMyIvPgo8dGV4dCB4PSIxMDAiIHk9IjI1OCIgZmlsbD0iYmxhY2siIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk0xPC90ZXh0PgoKPGNpcmNsZSBjeD0iMTcwIiBjeT0iMjUwIiByPSIyNSIgZmlsbD0iIzk1YTVhNiIgc3Ryb2tlPSIjYmRjM2M3IiBzdHJva2Utd2lkdGg9IjMiLz4KPHRleHQgeD0iMTcwIiB5PSIyNTgiIGZpbGw9ImJsYWNrIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NMjwvdGV4dD4KCjxjaXJjbGUgY3g9IjEwMCIgY3k9IjMyMCIgcj0iMjUiIGZpbGw9IiM5NWE1YTYiIHN0cm9rZT0iI2JkYzNjNyIgc3Ryb2tlLXdpZHRoPSIzIi8+Cjx0ZXh0IHg9IjEwMCIgeT0iMzI4IiBmaWxsPSJibGFjayIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TTM8L3RleHQ+Cgo8Y2lyY2xlIGN4PSIxNzAiIGN5PSIzMjAiIHI9IjI1IiBmaWxsPSIjNTU1IiBzdHJva2U9IiM2NjYiIHN0cm9rZS13aWR0aD0iMyIgb3BhY2l0eT0iMC41Ii8+Cjx0ZXh0IHg9IjE3MCIgeT0iMzI4IiBmaWxsPSIjOTk5IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NNDwvdGV4dD4KCjwhLS0gUmlnaHQgV2luZyBUYWJsZXMgLS0+CjxjaXJjbGUgY3g9IjYzMCIgY3k9IjI1MCIgcj0iMjUiIGZpbGw9IiM5NWE1YTYiIHN0cm9rZT0iI2JkYzNjNyIgc3Ryb2tlLXdpZHRoPSIzIi8+Cjx0ZXh0IHg9IjYzMCIgeT0iMjU4IiBmaWxsPSJibGFjayIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UjE8L3RleHQ+Cgo8Y2lyY2xlIGN4PSI3MDAiIGN5PSIyNTAiIHI9IjI1IiBmaWxsPSIjOTVhNWE2IiBzdHJva2U9IiNiZGMzYzciIHN0cm9rZS13aWR0aD0iMyIvPgo8dGV4dCB4PSI3MDAiIHk9IjI1OCIgZmlsbD0iYmxhY2siIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlIyPC90ZXh0PgoKPGNpcmNsZSBjeD0iNjMwIiBjeT0iMzIwIiByPSIyNSIgZmlsbD0iIzk1YTVhNiIgc3Ryb2tlPSIjYmRjM2M3IiBzdHJva2Utd2lkdGg9IjMiLz4KPHN0ZXh0IHg9IjYzMCIgeT0iMzI4IiBmaWxsPSJibGFjayIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UjM8L3RleHQ+Cgo8IS0tIFZJUCBUYWJsZXMgLS0+CjxjaXJjbGUgY3g9IjMwMCIgY3k9IjQ4MCIgcj0iMzAiIGZpbGw9IiNmMzljMTIiIHN0cm9rZT0iI0ZGRDcwMCIgc3Ryb2tlLXdpZHRoPSIzIi8+Cjx0ZXh0IHg9IjMwMCIgeT0iNDg4IiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VjE8L3RleHQ+Cgo8Y2lyY2xlIGN4PSI0MDAiIGN5PSI0ODAiIHI9IjMwIiBmaWxsPSIjZjM5YzEyIiBzdHJva2U9IiNGRkQ3MDAiIHN0cm9rZS13aWR0aD0iMyIvPgo8dGV4dCB4PSI0MDAiIHk9IjQ4OCIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlYyPC90ZXh0PgoKPGNpcmNsZSBjeD0iNTAwIiBjeT0iNDgwIiByPSIzMCIgZmlsbD0iI2YzOWMxMiIgc3Ryb2tlPSIjRkZENzAwIiBzdHJva2Utd2lkdGg9IjMiLz4KPHN0ZXh0IHg9IjUwMCIgeT0iNDg4IiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VjM8L3RleHQ+Cgo8IS0tIFByZW1pdW0gUm95YWxlIFRhYmxlcyAtLT4KPGNpcmNsZSBjeD0iMzUwIiBjeT0iNTUwIiByPSIzNSIgZmlsbD0iI0ZGRDcwMCIgc3Ryb2tlPSIjRkZBNTAwIiBzdHJva2Utd2lkdGg9IjMiLz4KPHN0ZXh0IHg9IjM1MCIgeT0iNTU4IiBmaWxsPSJibGFjayIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UDE8L3RleHQ+Cgo8Y2lyY2xlIGN4PSI0NTAiIGN5PSI1NTAiIHI9IjM1IiBmaWxsPSIjRkZENzAwIiBzdHJva2U9IiNGRkE1MDAiIHN0cm9rZS13aWR0aD0iMyIvPgo8dGV4dCB4PSI0NTAiIHk9IjU1OCIgZmlsbD0iYmxhY2siIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlAyPC90ZXh0PgoKPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQxX2xpbmVhcl8wXzEiIHgxPSIyNTAiIHkxPSIzMCIgeDI9IjU1MCIgeTI9IjExMCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjRkY2QjZCIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0ZGNDc1NyIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPgo=" 
+                          alt="Venue Layout" 
+                          class="venue-artwork" />
                     
-                    <!-- Venue Areas -->
-                    <div class="main-stage">🎭 MAIN STAGE</div>
-                    <div class="dj-booth" onclick="showDJTip()">🎧 DJ BOOTH</div>
-                    <div class="dance-floor"></div>
-                    <div class="premium-bar">🥂<br>PREMIUM<br>BAR</div>
-                    <div class="coolcat-corner">🛍️<br>COOLCAT<br>CORNER</div>
-                    <div class="vip-lounge">👑<br>VIP<br>LOUNGE</div>
-
-                    <!-- Table Sections -->
-                    <div class="table-section main-floor">
-                        <div class="section-label">Main Floor - $85</div>
-                        <div class="tables-grid">
-                            <div class="table-btn standard" data-table="M1" data-type="Standard" data-price="85">M1</div>
-                            <div class="table-btn standard" data-table="M2" data-type="Standard" data-price="85">M2</div>
-                            <div class="table-btn standard" data-table="M3" data-type="Standard" data-price="85">M3</div>
-                            <div class="table-btn standard" data-table="M4" data-type="Standard" data-price="85">M4</div>
-                            <div class="table-btn standard sold" data-table="M5" data-type="Standard" data-price="85">M5</div>
-                            <div class="table-btn standard" data-table="M6" data-type="Standard" data-price="85">M6</div>
-                            <div class="table-btn standard" data-table="M7" data-type="Standard" data-price="85">M7</div>
-                            <div class="table-btn standard" data-table="M8" data-type="Standard" data-price="85">M8</div>
-                        </div>
+                    <!-- Interactive Overlay -->
+                    <div class="interactive-overlay">
+                        <!-- DJ Booth Interactive Area -->
+                        <div class="dj-area" onclick="showDJTip()" title="Click to tip the DJ"></div>
+                        
+                        <!-- Cool Cat Corner Interactive Area -->
+                        <div class="coolcat-area" onclick="showMerch()" title="Cool Cat Corner - Merchandise"></div>
+                        
+                        <!-- Table Click Areas - Mapped to artwork positions -->
+                        <!-- Main Floor Tables -->
+                        <div class="clickable-area" data-table="M1" data-type="Standard" data-price="85" 
+                             style="top: 35%; left: 8%; width: 60px; height: 60px;" title="Table M1 - Standard ($85)"></div>
+                        <div class="clickable-area" data-table="M2" data-type="Standard" data-price="85" 
+                             style="top: 35%; left: 16%; width: 60px; height: 60px;" title="Table M2 - Standard ($85)"></div>
+                        <div class="clickable-area" data-table="M3" data-type="Standard" data-price="85" 
+                             style="top: 47%; left: 8%; width: 60px; height: 60px;" title="Table M3 - Standard ($85)"></div>
+                        <div class="clickable-area sold" data-table="M4" data-type="Standard" data-price="85" 
+                             style="top: 47%; left: 16%; width: 60px; height: 60px;" title="Table M4 - SOLD OUT"></div>
+                        
+                        <!-- Right Wing Tables -->
+                        <div class="clickable-area" data-table="R1" data-type="Standard" data-price="85" 
+                             style="top: 35%; right: 12%; width: 60px; height: 60px;" title="Table R1 - Standard ($85)"></div>
+                        <div class="clickable-area" data-table="R2" data-type="Standard" data-price="85" 
+                             style="top: 35%; right: 4%; width: 60px; height: 60px;" title="Table R2 - Standard ($85)"></div>
+                        <div class="clickable-area" data-table="R3" data-type="Standard" data-price="85" 
+                             style="top: 47%; right: 12%; width: 60px; height: 60px;" title="Table R3 - Standard ($85)"></div>
+                        
+                        <!-- VIP Tables -->
+                        <div class="clickable-area" data-table="V1" data-type="VIP Silver" data-price="185" 
+                             style="top: 72%; left: 32%; width: 70px; height: 70px;" title="Table V1 - VIP Silver ($185)"></div>
+                        <div class="clickable-area" data-table="V2" data-type="VIP Silver" data-price="185" 
+                             style="top: 72%; left: 46%; width: 70px; height: 70px;" title="Table V2 - VIP Silver ($185)"></div>
+                        <div class="clickable-area" data-table="V3" data-type="VIP Silver" data-price="185" 
+                             style="top: 72%; left: 58%; width: 70px; height: 70px;" title="Table V3 - VIP Silver ($185)"></div>
+                        
+                        <!-- Premium Royale Tables -->
+                        <div class="clickable-area" data-table="P1" data-type="Premium Royale" data-price="350" 
+                             style="top: 85%; left: 38%; width: 80px; height: 80px;" title="Table P1 - Premium Royale ($350)"></div>
+                        <div class="clickable-area" data-table="P2" data-type="Premium Royale" data-price="350" 
+                             style="top: 85%; left: 52%; width: 80px; height: 80px;" title="Table P2 - Premium Royale ($350)"></div>
                     </div>
-
-                    <div class="table-section right-wing">
-                        <div class="section-label">Right Wing - $85</div>
-                        <div class="tables-grid">
-                            <div class="table-btn standard" data-table="R1" data-type="Standard" data-price="85">R1</div>
-                            <div class="table-btn standard" data-table="R2" data-type="Standard" data-price="85">R2</div>
-                            <div class="table-btn standard" data-table="R3" data-type="Standard" data-price="85">R3</div>
-                            <div class="table-btn standard" data-table="R4" data-type="Standard" data-price="85">R4</div>
-                            <div class="table-btn standard" data-table="R5" data-type="Standard" data-price="85">R5</div>
-                            <div class="table-btn standard" data-table="R6" data-type="Standard" data-price="85">R6</div>
-                        </div>
+                    
+                    <!-- Table Labels for Clarity -->
+                    <div class="table-label" style="top: 30%; left: 12%;">M1</div>
+                    <div class="table-label" style="top: 30%; left: 20%;">M2</div>
+                    <div class="table-label" style="top: 42%; left: 12%;">M3</div>
+                    <div class="table-label" style="top: 42%; left: 20%;">M4 (SOLD)</div>
+                    <div class="table-label" style="top: 30%; right: 16%;">R1</div>
+                    <div class="table-label" style="top: 30%; right: 8%;">R2</div>
+                    <div class="table-label" style="top: 42%; right: 16%;">R3</div>
+                    <div class="table-label" style="top: 67%; left: 36%;">V1</div>
+                    <div class="table-label" style="top: 67%; left: 50%;">V2</div>
+                    <div class="table-label" style="top: 67%; left: 62%;">V3</div>
+                    <div class="table-label" style="top: 80%; left: 42%;">P1</div>
+                    <div class="table-label" style="top: 80%; left: 56%;">P2</div>
+                </div>
+                
+                <!-- Legend -->
+                <div style="margin-top: 20px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 8px; color: #c0c0c0;">
+                        <div style="width: 20px; height: 20px; background: #95a5a6; border-radius: 50%; border: 2px solid #bdc3c7;"></div>
+                        <span>Standard - $85</span>
                     </div>
-
-                    <div class="table-section vip-section">
-                        <div class="section-label">VIP Section - $185</div>
-                        <div class="tables-grid">
-                            <div class="table-btn vip" data-table="V1" data-type="VIP Silver" data-price="185">V1</div>
-                            <div class="table-btn vip" data-table="V2" data-type="VIP Silver" data-price="185">V2</div>
-                            <div class="table-btn vip" data-table="V3" data-type="VIP Silver" data-price="185">V3</div>
-                            <div class="table-btn vip" data-table="V4" data-type="VIP Silver" data-price="185">V4</div>
-                            <div class="table-btn vip" data-table="V5" data-type="VIP Silver" data-price="185">V5</div>
-                        </div>
+                    <div style="display: flex; align-items: center; gap: 8px; color: #c0c0c0;">
+                        <div style="width: 20px; height: 20px; background: #f39c12; border-radius: 50%; border: 2px solid #FFD700;"></div>
+                        <span>VIP Silver - $185</span>
                     </div>
-
-                    <div class="table-section premium-section">
-                        <div class="section-label">Premium Royale - $350</div>
-                        <div class="tables-grid">
-                            <div class="table-btn premium" data-table="P1" data-type="Premium Royale" data-price="350">P1</div>
-                            <div class="table-btn premium" data-table="P2" data-type="Premium Royale" data-price="350">P2</div>
-                            <div class="table-btn premium" data-table="P3" data-type="Premium Royale" data-price="350">P3</div>
-                        </div>
+                    <div style="display: flex; align-items: center; gap: 8px; color: #c0c0c0;">
+                        <div style="width: 20px; height: 20px; background: #FFD700; border-radius: 50%; border: 2px solid #FFA500;"></div>
+                        <span>Premium Royale - $350</span>
                     </div>
                 </div>
             </div>
@@ -796,7 +538,7 @@
                 
                 <div id="booking-form" class="booking-form">
                     <div class="empty-state">
-                        <p>Select your preferred table from the venue map to begin your luxury reservation experience</p>
+                        <p>Click on any available table in the venue map to begin your reservation</p>
                     </div>
                 </div>
 
@@ -814,6 +556,17 @@
                             <div class="tip-btn" data-tip="20">$20</div>
                             <div class="tip-btn" data-tip="50">$50</div>
                             <div class="tip-btn" data-tip="100">$100</div>
+                        </div>
+                    </div>
+
+                    <div id="merch-section" class="dj-tip-section" style="display: none; border-color: rgba(247, 37, 133, 0.3); background: linear-gradient(135deg, rgba(247, 37, 133, 0.1) 0%, rgba(181, 23, 158, 0.1) 100%);">
+                        <h4 style="color: #F72585; margin-bottom: 8px; font-weight: 700;">🛍️ Cool Cat Corner</h4>
+                        <p style="color: #c0c0c0; font-size: 0.9rem; margin-bottom: 8px;">Add exclusive merchandise!</p>
+                        <div class="tip-buttons">
+                            <div class="tip-btn" data-merch="25" style="border-color: rgba(247, 37, 133, 0.5); background: rgba(247, 37, 133, 0.1);">T-Shirt<br>$25</div>
+                            <div class="tip-btn" data-merch="15" style="border-color: rgba(247, 37, 133, 0.5); background: rgba(247, 37, 133, 0.1);">Cap<br>$15</div>
+                            <div class="tip-btn" data-merch="40" style="border-color: rgba(247, 37, 133, 0.5); background: rgba(247, 37, 133, 0.1);">Hoodie<br>$40</div>
+                            <div class="tip-btn" data-merch="60" style="border-color: rgba(247, 37, 133, 0.5); background: rgba(247, 37, 133, 0.1);">Bundle<br>$60</div>
                         </div>
                     </div>
 
@@ -837,6 +590,10 @@
                         <div class="price-item" id="dj-tip-line" style="display: none;">
                             <span>DJ Tip:</span>
                             <span id="dj-tip-amount">$0</span>
+                        </div>
+                        <div class="price-item" id="merch-line" style="display: none;">
+                            <span>Merchandise:</span>
+                            <span id="merch-amount">$0</span>
                         </div>
                         <div class="price-item">
                             <span>Service Fee:</span>
@@ -882,28 +639,54 @@
         </div>
     </div>
 
+    <!-- Tooltip -->
+    <div id="tooltip" class="tooltip"></div>
+
     <script>
         let selectedTable = null;
         let djTip = 0;
+        let merchCost = 0;
 
-        // Table selection
-        document.querySelectorAll('.table-btn:not(.sold)').forEach(table => {
-            table.addEventListener('click', function() {
-                document.querySelectorAll('.table-btn').forEach(t => t.classList.remove('selected'));
-                this.classList.add('selected');
+        // Table selection functionality
+        document.querySelectorAll('.clickable-area:not(.sold)').forEach(area => {
+            area.addEventListener('click', function(e) {
+                e.stopPropagation();
                 
+                // Remove previous selection
+                document.querySelectorAll('.clickable-area').forEach(a => a.classList.remove('selected'));
+                
+                // Select new table
+                this.classList.add('selected');
                 selectedTable = {
                     id: this.dataset.table,
                     type: this.dataset.type,
                     price: parseInt(this.dataset.price)
                 };
 
+                // Show booking form
                 document.getElementById('booking-form').style.display = 'none';
                 document.getElementById('selected-booking').style.display = 'block';
                 document.getElementById('selected-table-info').textContent = `Table ${selectedTable.id} - ${selectedTable.type}`;
                 document.getElementById('selected-table-details').textContent = getTableDetails(selectedTable.type);
                 
                 updatePricing();
+            });
+
+            // Hover tooltip
+            area.addEventListener('mouseenter', function(e) {
+                const tooltip = document.getElementById('tooltip');
+                tooltip.textContent = this.title;
+                tooltip.classList.add('show');
+            });
+
+            area.addEventListener('mousemove', function(e) {
+                const tooltip = document.getElementById('tooltip');
+                tooltip.style.left = e.pageX + 10 + 'px';
+                tooltip.style.top = e.pageY - 10 + 'px';
+            });
+
+            area.addEventListener('mouseleave', function() {
+                document.getElementById('tooltip').classList.remove('show');
             });
         });
 
@@ -912,13 +695,31 @@
             document.getElementById('dj-tip-section').style.display = 'block';
         }
 
-        document.querySelectorAll('.tip-btn').forEach(btn => {
+        // Cool Cat Corner functionality
+        function showMerch() {
+            document.getElementById('merch-section').style.display = 'block';
+        }
+
+        // DJ Tip buttons
+        document.querySelectorAll('.tip-btn[data-tip]').forEach(btn => {
             btn.addEventListener('click', function() {
-                document.querySelectorAll('.tip-btn').forEach(b => b.classList.remove('selected'));
+                document.querySelectorAll('.tip-btn[data-tip]').forEach(b => b.classList.remove('selected'));
                 this.classList.add('selected');
                 djTip = parseInt(this.dataset.tip);
                 document.getElementById('dj-tip-line').style.display = 'flex';
                 document.getElementById('dj-tip-amount').textContent = `$${djTip}`;
+                updatePricing();
+            });
+        });
+
+        // Merchandise buttons
+        document.querySelectorAll('.tip-btn[data-merch]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tip-btn[data-merch]').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+                merchCost = parseInt(this.dataset.merch);
+                document.getElementById('merch-line').style.display = 'flex';
+                document.getElementById('merch-amount').textContent = `$${merchCost}`;
                 updatePricing();
             });
         });
@@ -944,7 +745,7 @@
             const guests = parseInt(document.getElementById('guests').value);
             const basePrice = selectedTable.price * guests;
             const serviceFee = 25;
-            const total = basePrice + djTip + serviceFee;
+            const total = basePrice + djTip + merchCost + serviceFee;
 
             document.getElementById('base-price-label').textContent = `${selectedTable.type} (${guests} guests):`;
             document.getElementById('base-price').textContent = `$${basePrice.toLocaleString()}`;
@@ -952,13 +753,31 @@
         }
 
         async function addToAppleWallet() {
-            if (!selectedTable) return;
-            alert('🍎 Apple Wallet integration ready! In production, this would generate a .pkpass file and add to your wallet.');
+            if (!selectedTable) {
+                alert('Please select a table first!');
+                return;
+            }
+            
+            // Apple Wallet PassKit integration
+            const passData = {
+                eventName: "Bollywood Royale",
+                venue: "The Phoenix Concert Theatre",
+                date: "August 12th, 2025",
+                time: "9:00 PM - 2:00 AM",
+                table: selectedTable.id,
+                type: selectedTable.type
+            };
+
+            alert(`🍎 Adding to Apple Wallet...\n\nEvent: ${passData.eventName}\nTable: ${passData.table} (${passData.type})\nVenue: ${passData.venue}\n\nIn production, this would generate a .pkpass file and add to your Apple Wallet automatically.`);
         }
 
         async function addToGoogleWallet() {
-            if (!selectedTable) return;
-            alert('📱 Google Wallet integration ready! In production, this would use Google Pay API to add the ticket.');
+            if (!selectedTable) {
+                alert('Please select a table first!');
+                return;
+            }
+            
+            alert(`📱 Adding to Google Wallet...\n\nEvent: Bollywood Royale\nTable: ${selectedTable.id} (${selectedTable.type})\nVenue: The Phoenix Concert Theatre\n\nIn production, this would use Google Pay API to add the ticket to your Google Wallet.`);
         }
 
         async function processPayment() {
@@ -974,24 +793,55 @@
             const total = parseInt(document.getElementById('total-price').textContent.replace(/[$,]/g, ''));
             const guests = document.getElementById('guests').value;
 
-            // In production, integrate with Stripe
-            alert(`🎉 Payment Successful!
+            // Simulate Stripe payment processing
+            const paymentData = {
+                amount: total * 100, // Stripe uses cents
+                currency: 'cad',
+                table: selectedTable,
+                customer: { name, email, phone },
+                djTip: djTip,
+                merchandise: merchCost
+            };
 
-✅ Reservation Confirmed
-Table: ${selectedTable.id} (${selectedTable.type})
-Guest: ${name}
-Party Size: ${guests} guests
-Total: $${total.toLocaleString()}
+            alert(`🎉 Payment Successful!\n\n✅ Reservation Confirmed\nTable: ${selectedTable.id} (${selectedTable.type})\nGuest: ${name}\nParty Size: ${guests} guests\nTotal: $${total.toLocaleString()}\n\n🎫 Tickets added to wallet\n📧 Confirmation sent to ${email}\n📱 SMS sent to ${phone}\n\nWelcome to Bollywood Royale!\nGet ready for an unforgettable cultural experience!`);
 
-🎫 Tickets added to wallet
-📧 Confirmation sent to ${email}
-📱 SMS sent to ${phone}
-
-Welcome to Bollywood Royale! 
-Get ready for an unforgettable cultural experience!`);
-
+            // Reset form after delay
             setTimeout(() => location.reload(), 3000);
         }
+
+        // Production Stripe Integration Template:
+        /*
+        async function createPaymentIntent(paymentData) {
+            const response = await fetch('/api/create-payment-intent', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(paymentData)
+            });
+            return await response.json();
+        }
+
+        async function processPayment() {
+            try {
+                const { client_secret } = await createPaymentIntent(paymentData);
+                const result = await stripe.confirmCardPayment(client_secret, {
+                    payment_method: {
+                        card: cardElement,
+                        billing_details: { name, email }
+                    }
+                });
+                
+                if (result.error) {
+                    alert('Payment failed: ' + result.error.message);
+                } else {
+                    // Payment successful - add to wallet and send confirmations
+                    await addToAppleWallet();
+                    // Send confirmation emails, SMS, etc.
+                }
+            } catch (error) {
+                alert('Payment processing error');
+            }
+        }
+        */
     </script>
 </body>
 </html>
