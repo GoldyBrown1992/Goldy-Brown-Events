@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goldy Brown Events - Premium Table Booking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .luxury-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 206, 84, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .brand-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF6B6B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .event-info {
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(20px);
+            text-align: center;
+        }
+
+        .event-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 450px;
+            gap: 40px;
+        }
+
+        .venue-section {
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #FFD700;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .venue-map {
+            width: 100%;
+            height: 600px;
+            position: relative;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* Venue Areas */
+        .venue-area {
+            position: absolute;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: white;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .main-stage {
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 80px;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF4757 100%);
+            font-size: 1.1rem;
+        }
+
+        .dj-booth {
+            top: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dj-booth:hover {
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .premium-bar {
+            bottom: 30px;
+            right: 30px;
+            width: 100px;
+            height: 120px;
+            background: linear-gradient(135deg, #48CAE4 0%, #023E8A 100%);
+            writing-mode: vertical-rl;
+        }
+
+        .coolcat-corner {
+            bottom: 30px;
+            left: 30px;
+            width: 120px;
+            height: 80px;
+            background: linear-gradient(135deg, #F72585 0%, #B5179E 100%);
+            font-size: 0.9rem;
+        }
+
+        .vip-lounge {
+            top: 220px;
+            right: 40px;
+            width: 140px;
+            height: 100px;
+            background: linear-gradient(135deg, #FFD60A 0%, #FF8500 100%);
+            color: #000;
+        }
+
+        /* Table Sections */
+        .table-section {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(40, 40, 40, 0.6);
+            padding: 15px;
+        }
+
+        .section-label {
+            color: #FFD700;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .tables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+            gap: 8px;
+        }
+
+        .table-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            border: 2px solid;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .table-btn.standard {
+            border-color: #95a5a6;
+        }
+
+        .table-btn.vip {
+            border-color: #f39c12;
+        }
+
+        .table-btn.premium {
+            border-color: #FFD700;
+            background: linear-gradient(135deg, rgba(255,215,0,0.2) 0%, rgba(255,165,0,0.1) 100%);
+        }
+
+        .table-btn.sold {
+            background: #555;
+            border-color: #666;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .table-btn:not(.sold):hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .table-btn.selected {
+            border-color: #FFD700 !important;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%) !important;
+            color: #000 !important;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Table Sections Positioning */
+        .main-floor {
+            top: 200px;
+            left: 50px;
+            width: 300px;
+            height: 150px;
+        }
+
+        .right-wing {
+            top: 200px;
+            right: 200px;
+            width: 200px;
+            height: 150px;
+        }
+
+        .vip-section {
+            top: 370px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 120px;
+        }
+
+        .premium-section {
+            top: 510px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 80px;
+        }
+
+        .booking-panel {
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #e0e0e0;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            border-radius: 8px;
+            background: rgba(40, 40, 40, 0.8);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+        }
+
+        .selected-table {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 107, 107, 0.1) 100%);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .dj-tip-section {
+            background: rgba(102, 126, 234, 0.1);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tip-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tip-btn {
+            padding: 8px;
+            border: 2px solid rgba(102, 126, 234, 0.5);
+            border-radius: 6px;
+            background: rgba(102, 126, 234, 0.1);
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .tip-btn:hover, .tip-btn.selected {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.3);
+        }
+
+        .price-breakdown {
+            background: rgba(40, 40, 40, 0.8);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            color: #e0e0e0;
+        }
+
+        .price-total {
+            border-top: 2px solid #FFD700;
+            padding-top: 10px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #FFD700;
+        }
+
+        .payment-section {
+            margin-top: 25px;
+        }
+
+        .wallet-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .wallet-btn {
+            padding: 12px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            background: rgba(30, 30, 30, 0.8);
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .wallet-btn:hover {
+            border-color: #FFD700;
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #888;
+            padding: 40px 20px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .venue-map {
+                height: 500px;
+            }
+            
+            .table-section {
+                padding: 10px;
+            }
+            
+            .tables-grid {
+                gap: 6px;
+            }
+            
+            .table-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="luxury-bg"></div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="brand-logo">GOLDY BROWN EVENTS</div>
+        </div>
+
+        <div class="event-info">
+            <div class="event-title">Bollywood Royale - August 12th</div>
+            <p>🕘 9:00 PM - 2:00 AM | 📍 The Phoenix Concert Theatre, Toronto | 👔 Smart Casual</p>
+        </div>
+
+        <div class="main-content">
+            <div class="venue-section">
+                <h3 class="section-title">Venue Layout & Table Selection</h3>
+                <div class="venue-map">
+                    <!-- Venue Areas -->
+                    <div class="venue-area main-stage">🎭 MAIN STAGE</div>
+                    <div class="venue-area dj-booth" onclick="showDJTip()">🎧 DJ BOOTH</div>
+                    <div class="venue-area premium-bar">🥂<br>PREMIUM<br>BAR</div>
+                    <div class="venue-area coolcat-corner">🛍️<br>COOLCAT<br>CORNER</div>
+                    <div class="venue-area vip-lounge">👑<br>VIP<br>LOUNGE</div>
+
+                    <!-- Table Sections -->
+                    <div class="table-section main-floor">
+                        <div class="section-label">Main Floor - $85</div>
+                        <div class="tables-grid">
+                            <div class="table-btn standard" data-table="M1" data-type="Standard" data-price="85">M1</div>
+                            <div class="table-btn standard" data-table="M2" data-type="Standard" data-price="85">M2</div>
+                            <div class="table-btn standard" data-table="M3" data-type="Standard" data-price="85">M3</div>
+                            <div class="table-btn standard" data-table="M4" data-type="Standard" data-price="85">M4</div>
+                            <div class="table-btn standard sold" data-table="M5" data-type="Standard" data-price="85">M5</div>
+                            <div class="table-btn standard" data-table="M6" data-type="Standard" data-price="85">M6</div>
+                            <div class="table-btn standard" data-table="M7" data-type="Standard" data-price="85">M7</div>
+                            <div class="table-btn standard" data-table="M8" data-type="Standard" data-price="85">M8</div>
+                        </div>
+                    </div>
+
+                    <div class="table-section right-wing">
+                        <div class="section-label">Right Wing - $85</div>
+                        <div class="tables-grid">
+                            <div class="table-btn standard" data-table="R1" data-type="Standard" data-price="85">R1</div>
+                            <div class="table-btn standard" data-table="R2" data-type="Standard" data-price="85">R2</div>
+                            <div class="table-btn standard" data-table="R3" data-type="Standard" data-price="85">R3</div>
+                            <div class="table-btn standard" data-table="R4" data-type="Standard" data-price="85">R4</div>
+                            <div class="table-btn standard" data-table="R5" data-type="Standard" data-price="85">R5</div>
+                            <div class="table-btn standard" data-table="R6" data-type="Standard" data-price="85">R6</div>
+                        </div>
+                    </div>
+
+                    <div class="table-section vip-section">
+                        <div class="section-label">VIP Section - $185</div>
+                        <div class="tables-grid">
+                            <div class="table-btn vip" data-table="V1" data-type="VIP Silver" data-price="185">V1</div>
+                            <div class="table-btn vip" data-table="V2" data-type="VIP Silver" data-price="185">V2</div>
+                            <div class="table-btn vip" data-table="V3" data-type="VIP Silver" data-price="185">V3</div>
+                            <div class="table-btn vip" data-table="V4" data-type="VIP Silver" data-price="185">V4</div>
+                            <div class="table-btn vip" data-table="V5" data-type="VIP Silver" data-price="185">V5</div>
+                        </div>
+                    </div>
+
+                    <div class="table-section premium-section">
+                        <div class="section-label">Premium Royale - $350</div>
+                        <div class="tables-grid">
+                            <div class="table-btn premium" data-table="P1" data-type="Premium Royale" data-price="350">P1</div>
+                            <div class="table-btn premium" data-table="P2" data-type="Premium Royale" data-price="350">P2</div>
+                            <div class="table-btn premium" data-table="P3" data-type="Premium Royale" data-price="350">P3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-panel">
+                <h3 style="font-family: 'Playfair Display', serif; color: #FFD700; margin-bottom: 25px; text-align: center;">Reserve Your Experience</h3>
+                
+                <div id="booking-form" class="booking-form">
+                    <div class="empty-state">
+                        <p>Select your table from the venue map to begin</p>
+                    </div>
+                </div>
+
+                <div id="selected-booking" class="booking-form" style="display: none;">
+                    <div class="selected-table">
+                        <h4 id="selected-table-info" style="color: #FFD700; margin-bottom: 5px;">Table Selected</h4>
+                        <p id="selected-table-details" style="color: #c0c0c0; font-size: 0.9rem;">Details will appear here</p>
+                    </div>
+
+                    <div id="dj-tip-section" class="dj-tip-section" style="display: none;">
+                        <h4 style="color: #667eea; margin-bottom: 10px;">🎧 Tip the DJ</h4>
+                        <p style="color: #c0c0c0; font-size: 0.9rem; margin-bottom: 10px;">Show love for the beats!</p>
+                        <div class="tip-buttons">
+                            <div class="tip-btn" data-tip="10">$10</div>
+                            <div class="tip-btn" data-tip="20">$20</div>
+                            <div class="tip-btn" data-tip="50">$50</div>
+                            <div class="tip-btn" data-tip="100">$100</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guests">Party Size</label>
+                        <select id="guests">
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="4" selected>4 Guests</option>
+                            <option value="6">6 Guests</option>
+                            <option value="8">8 Guests</option>
+                        </select>
+                    </div>
+
+                    <div class="price-breakdown">
+                        <div class="price-item">
+                            <span id="base-price-label">Table Cost:</span>
+                            <span id="base-price">$0</span>
+                        </div>
+                        <div class="price-item" id="dj-tip-line" style="display: none;">
+                            <span>DJ Tip:</span>
+                            <span id="dj-tip-amount">$0</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Service Fee:</span>
+                            <span id="service-fee">$25</span>
+                        </div>
+                        <div class="price-item price-total">
+                            <span>Total Cost:</span>
+                            <span id="total-price">$0</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                    </div>
+
+                    <div class="payment-section">
+                        <label style="display: block; margin-bottom: 15px; font-weight: 600; color: #e0e0e0;">Add to Wallet & Pay</label>
+                        <div class="wallet-buttons">
+                            <div class="wallet-btn" onclick="addToAppleWallet()">
+                                🍎 Apple Wallet
+                            </div>
+                            <div class="wallet-btn" onclick="addToGoogleWallet()">
+                                📱 Google Wallet
+                            </div>
+                        </div>
+                        <button class="btn" onclick="processPayment()">
+                            💳 Pay with Stripe
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedTable = null;
+        let djTip = 0;
+        let stripe = Stripe('pk_test_your_publishable_key_here'); // Replace with your Stripe key
+
+        // Table selection
+        document.querySelectorAll('.table-btn:not(.sold)').forEach(table => {
+            table.addEventListener('click', function() {
+                document.querySelectorAll('.table-btn').forEach(t => t.classList.remove('selected'));
+                this.classList.add('selected');
+                
+                selectedTable = {
+                    id: this.dataset.table,
+                    type: this.dataset.type,
+                    price: parseInt(this.dataset.price)
+                };
+
+                document.getElementById('booking-form').style.display = 'none';
+                document.getElementById('selected-booking').style.display = 'block';
+                document.getElementById('selected-table-info').textContent = `Table ${selectedTable.id} - ${selectedTable.type}`;
+                document.getElementById('selected-table-details').textContent = getTableDetails(selectedTable.type);
+                
+                updatePricing();
+            });
+        });
+
+        // DJ Tip functionality
+        function showDJTip() {
+            document.getElementById('dj-tip-section').style.display = 'block';
+        }
+
+        document.querySelectorAll('.tip-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tip-btn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+                djTip = parseInt(this.dataset.tip);
+                document.getElementById('dj-tip-line').style.display = 'flex';
+                document.getElementById('dj-tip-amount').textContent = `$${djTip}`;
+                updatePricing();
+            });
+        });
+
+        document.getElementById('guests').addEventListener('change', updatePricing);
+
+        function getTableDetails(type) {
+            switch(type) {
+                case 'Standard':
+                    return 'Premium seating with welcome cocktail and coat check service';
+                case 'VIP Silver':
+                    return 'Priority entrance, VIP lounge access, dedicated server, 2 premium cocktails';
+                case 'Premium Royale':
+                    return 'Private entrance, personal concierge, bottle service, meet & greet with Goldy Brown';
+                default:
+                    return '';
+            }
+        }
+
+        function updatePricing() {
+            if (!selectedTable) return;
+
+            const guests = parseInt(document.getElementById('guests').value);
+            const basePrice = selectedTable.price * guests;
+            const serviceFee = 25;
+            const total = basePrice + djTip + serviceFee;
+
+            document.getElementById('base-price-label').textContent = `${selectedTable.type} (${guests} guests):`;
+            document.getElementById('base-price').textContent = `$${basePrice}`;
+            document.getElementById('total-price').textContent = `$${total}`;
+        }
+
+        async function addToAppleWallet() {
+            if (!selectedTable) return;
+            
+            // Apple Wallet PassKit integration
+            const passData = {
+                formatVersion: 1,
+                passTypeIdentifier: "pass.com.goldybrownvents.event",
+                serialNumber: `GB-${Date.now()}`,
+                teamIdentifier: "YOUR_TEAM_ID",
+                organizationName: "Goldy Brown Events",
+                description: "Bollywood Royale Ticket",
+                logoText: "Goldy Brown Events",
+                foregroundColor: "rgb(255, 255, 255)",
+                backgroundColor: "rgb(10, 10, 10)",
+                labelColor: "rgb(255, 215, 0)"
+            };
+
+            alert('🍎 Apple Wallet integration ready! In production, this would generate a .pkpass file and prompt to add to wallet.');
+        }
+
+        async function addToGoogleWallet() {
+            if (!selectedTable) return;
+            
+            // Google Wallet API integration
+            const eventTicket = {
+                "iss": "your-service-account-email@project.iam.gserviceaccount.com",
+                "aud": "google",
+                "typ": "savetowallet",
+                "payload": {
+                    "eventTicketObjects": [{
+                        "id": `GB-${Date.now()}`,
+                        "classId": "3388000000022195856.goldy_brown_events",
+                        "eventName": {
+                            "defaultValue": {
+                                "language": "en-US",
+                                "value": "Bollywood Royale"
+                            }
+                        }
+                    }]
+                }
+            };
+
+            alert('📱 Google Wallet integration ready! In production, this would use the Google Wallet API to add the ticket.');
+        }
+
+        async function processPayment() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+
+            if (!name || !email || !phone || !selectedTable) {
+                alert('Please fill in all required fields and select a table.');
+                return;
+            }
+
+            const total = parseInt(document.getElementById('total-price').textContent.replace('$', ''));
+
+            // In production, you'd create a payment intent on your backend
+            try {
+                // Demo: Show payment success
+                alert(`🎉 Payment Successful!
+
+Table: ${selectedTable.id} (${selectedTable.type})
+Guest: ${name}
+Total: $${total}
+
+✅ Tickets added to wallet
+📧 Confirmation sent to ${email}
+📱 SMS sent to ${phone}
+
+Welcome to Bollywood Royale!`);
+
+                // Reset form
+                setTimeout(() => location.reload(), 2000);
+                
+            } catch (error) {
+                alert('Payment failed. Please try again.');
+            }
+        }
+
+        // Production Stripe integration would look like this:
+        /*
+        async function processPayment() {
+            const response = await fetch('/create-payment-intent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    amount: total * 100, // Stripe uses cents
+                    currency: 'cad',
+                    table: selectedTable,
+                    customer: { name, email, phone }
+                }),
+            });
+            
+            const { client_secret } = await response.json();
+            
+            const result = await stripe.confirmCardPayment(client_secret, {
+                payment_method: {
+                    card: cardElement,
+                    billing_details: {
+                        name: name,
+                        email: email,
+                    },
+                },
+            });
+        }
+        */
+    </script>
+</body>
+
+</html>
